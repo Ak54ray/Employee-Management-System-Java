@@ -1,0 +1,31 @@
+package com.ems;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBConnection {
+
+    public static Connection getConnection() {
+
+        Connection con = null;
+
+        try {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/employee_db",
+                    "root",
+                    "Angesh@2004");
+
+            System.out.println("Connected to Database Successfully!");
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+        return con;
+    }
+}
